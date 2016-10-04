@@ -13,7 +13,7 @@ To date, agent-based models generally work at a very small scale (generally arou
 
 ## Model Layout
 
-[Layout of the MABM module for the toolkit.  The blue text represents attributes of the class.](https://gitlab.mitre.org/ceharvey/MABM/raw/720c5dc7579327ffc15c77fc8596ee416b31cd8d/Images/1000px-MABM_Module_Desgin.png)
+![Layout of the MABM module for the toolkit.  The blue text represents attributes of the class.](https://gitlab.mitre.org/ceharvey/MABM/raw/720c5dc7579327ffc15c77fc8596ee416b31cd8d/Images/1000px-MABM_Module_Desgin.png)
 The MABM Module is designed to build and schedule distributed Agent-Based models while abstracting the used from the distributed nature of the program.  The base MABM module is used to build these models and these classes are built on to develop Agent Based Models.  The diagram to the right explains the design and overall layout of the MABM module.
 * Element - Every model will contain elements, these are the entities that interact in the model and make decisions.  Each element has a distinct element_id
 ** Agent - The agent class is an instance of the Element class.  An agent is a more specific form of an entity.  Each Agent is assigned a specific model and container.
@@ -26,7 +26,8 @@ The MABM Module is designed to build and schedule distributed Agent-Based models
 * Model - The model is the abstract class that handles all agent communication.  This class contains an element_directory, rank, world_size, element_requests, element_watched, element_watching, element_changes_and_watched, element_id_generator, element_forms, and a scheudler.
 
 ## Agent Synchronization
-[Communication diagram illustrating communication techniques used in the MABM toolkit.](https://gitlab.mitre.org/ceharvey/MABM/raw/720c5dc7579327ffc15c77fc8596ee416b31cd8d/Images/ProcessCommms.png)
+
+![Communication diagram illustrating communication techniques used in the MABM toolkit.](https://gitlab.mitre.org/ceharvey/MABM/raw/720c5dc7579327ffc15c77fc8596ee416b31cd8d/Images/ProcessCommms.png)
 One of the novel techniques in Agent-Based modeling implemented in this toolkit is the communication process between processors.   The protocol used to synchronize agent states across processors has a significant impact on the efficiency of the tool.  Repast HPC is one of the currently available tools for distributed ABMs<ref>Collier, N., and M. North. 2013, Oct.. “Parallel agent-based simulation with Repast for High Performance Computing”. SIMULATION 89 (10): 1215–1235.</ref>.  This framework approaches the problem by performing a complete synchronization of all entities of interest at every time step.
 
 This toolkit also implements an alternative approach to entity synchronization, a design which manages persistent, pertinent information.  This protocol performs an initial synchronization between all entities with relationships to other agents and then only performs updates and synchronization following changes to relevant information.  The pertinent data synchronization technique is an event-driven method to manage the communication and synchronization between the processors.  The conservative and the event-driven approaches are both described and analyzed in the following sections.
