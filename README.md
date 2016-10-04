@@ -1,8 +1,5 @@
 # Massive-Scale Agent-Based Modeling (MABM) Module
-![MABM Logo](/Images/MABMLogo2.png =250x)
-<img src="/Images/MABMLogo2.png" width="200">
-
-Welcome to the Massive-Scale Agent-Based Modeling (MABM) Module for Python.  This toolkit allows developers to create
+<img src="/Images/MABMLogo2.png" width="300">Welcome to the Massive-Scale Agent-Based Modeling (MABM) Module for Python.  This toolkit allows developers to create
 a distributed Agent-Based model in Python.
 
 The Massive-Scale Agent-Based Modeling (MABM) Toolkit is a Python module that enables developers to create distributed Agent-Based Models. This toolkit was developed under the Massive Scale Agent Based Model of US Individual Tax Paying Population to Study Individual Reporting Compliance Behaviors and Massive-Scale Agent Based Models for Compliance and Service MIP Projects at the MITRE Corporation. Original development was completed by James Gentile and Christine Harvey.
@@ -14,8 +11,7 @@ For more information on the MABM toolkit, please contact Christine Harvey (cehar
 To date, agent-based models generally work at a very small scale (generally around 10,000 agents). The emergent behaviors from these small-scale models may not hold at the larger scale. Our goal has been to develop models with 100,000,000 (100M) agents, a representation of large national or worldwide populations. This scale requires a distributed modeling framework. In a lean Python implementation, an agent consumes 1 Kilobyte of RAM (including model overhead) so a large-scale model would consume at least 100 Gigabytes of memory. Agent memory consumption will increase as complex attributes, networks and interactions are developed. A distributed implementation will require entity state to be communicated across processes.
 
 ## Model Layout
-![Layout of the MABM module for the toolkit.  The blue text represents attributes of the class.](/Images/1000px-MABM_Module_Desgin.png =250x)
-The MABM Module is designed to build and schedule distributed Agent-Based models while abstracting the used from the distributed nature of the program.  The base MABM module is used to build these models and these classes are built on to develop Agent Based Models.  The diagram to the right explains the design and overall layout of the MABM module.
+<img src="/Images/1000px-MABM_Module_Desgin.png" width="450">The MABM Module is designed to build and schedule distributed Agent-Based models while abstracting the used from the distributed nature of the program.  The base MABM module is used to build these models and these classes are built on to develop Agent Based Models.  The diagram to the right explains the design and overall layout of the MABM module.
 * Element - Every model will contain elements, these are the entities that interact in the model and make decisions.  Each element has a distinct element_id
 ** Agent - The agent class is an instance of the Element class.  An agent is a more specific form of an entity.  Each Agent is assigned a specific model and container.
 * ElementForm - The element form is a basic shadow or ghost copy of an element.  This basic copy contains less information and takes up less space in memory.  These forms are used to represent shadow images of agents actually located on foreign processors.  Each ElementForm has an element_id.
@@ -27,8 +23,7 @@ The MABM Module is designed to build and schedule distributed Agent-Based models
 * Model - The model is the abstract class that handles all agent communication.  This class contains an element_directory, rank, world_size, element_requests, element_watched, element_watching, element_changes_and_watched, element_id_generator, element_forms, and a scheudler.
 
 ## Agent Synchronization
-
-![Communication diagram illustrating communication techniques used in the MABM toolkit.](/Images/ProcessCommms.png =250x)
+<img src="/Images/ProcessCommms.png" width="450">
 One of the novel techniques in Agent-Based modeling implemented in this toolkit is the communication process between processors.   The protocol used to synchronize agent states across processors has a significant impact on the efficiency of the tool.  Repast HPC is one of the currently available tools for distributed ABMs<ref>Collier, N., and M. North. 2013, Oct.. “Parallel agent-based simulation with Repast for High Performance Computing”. SIMULATION 89 (10): 1215–1235.</ref>.  This framework approaches the problem by performing a complete synchronization of all entities of interest at every time step.
 
 This toolkit also implements an alternative approach to entity synchronization, a design which manages persistent, pertinent information.  This protocol performs an initial synchronization between all entities with relationships to other agents and then only performs updates and synchronization following changes to relevant information.  The pertinent data synchronization technique is an event-driven method to manage the communication and synchronization between the processors.  The conservative and the event-driven approaches are both described and analyzed in the following sections.
