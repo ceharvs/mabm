@@ -1,5 +1,6 @@
 # Massive-Scale Agent-Based Modeling (MABM) Module
 ![MABM Logo](/Images/MABMLogo2.png =250x)
+<img src="/Images/MABMLogo2.png" width="200">
 
 Welcome to the Massive-Scale Agent-Based Modeling (MABM) Module for Python.  This toolkit allows developers to create
 a distributed Agent-Based model in Python.
