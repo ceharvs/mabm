@@ -12,7 +12,8 @@ For more information on the MABM toolkit, please contact Christine Harvey (cehar
 To date, agent-based models generally work at a very small scale (generally around 10,000 agents). The emergent behaviors from these small-scale models may not hold at the larger scale. Our goal has been to develop models with 100,000,000 (100M) agents, a representation of large national or worldwide populations. This scale requires a distributed modeling framework. In a lean Python implementation, an agent consumes 1 Kilobyte of RAM (including model overhead) so a large-scale model would consume at least 100 Gigabytes of memory. Agent memory consumption will increase as complex attributes, networks and interactions are developed. A distributed implementation will require entity state to be communicated across processes.
 
 ## Model Layout
-
+![solarized palette](https://github.com/altercation/solarized/raw/master/img/solarized-palette.png)
+![solarized palette](/Images/1000px-MABM_Module_Desgin.png)
 ![Layout of the MABM module for the toolkit.  The blue text represents attributes of the class.](https://gitlab.mitre.org/ceharvey/MABM/raw/720c5dc7579327ffc15c77fc8596ee416b31cd8d/Images/1000px-MABM_Module_Desgin.png)
 The MABM Module is designed to build and schedule distributed Agent-Based models while abstracting the used from the distributed nature of the program.  The base MABM module is used to build these models and these classes are built on to develop Agent Based Models.  The diagram to the right explains the design and overall layout of the MABM module.
 * Element - Every model will contain elements, these are the entities that interact in the model and make decisions.  Each element has a distinct element_id
