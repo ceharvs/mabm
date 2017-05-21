@@ -4,6 +4,7 @@ import mabm
 from mpi4py import MPI
 import abc
 import numpy.random as npr
+import sys
 
 class Model:
     __metaclass__ = abc.ABCMeta
